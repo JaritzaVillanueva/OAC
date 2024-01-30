@@ -27,8 +27,8 @@ for_j:
 
     xorpd xmm0,xmm0
     for_i:
-        movsd xmm1, [r10]
-        movsd xmm2, [r9]
+        movsd xmm1, [r10] ; A
+        movsd xmm2, [r9] ; X
         mulsd xmm1, xmm2
         addsd xmm0, xmm1
         add r10, 8
