@@ -1,0 +1,66 @@
+alulab@V20824:~/Escritorio/20213699$ nasm -f elf64 Lab1_20213699.asm -o Lab1_20213699.o
+alulab@V20824:~/Escritorio/20213699$ ld Lab1_20213699.o -o Lab1_20213699
+alulab@V20824:~/Escritorio/20213699$ gdb Lab1_20213699
+GNU gdb (Ubuntu 12.1-0ubuntu1~22.04) 12.1
+Copyright (C) 2022 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+--Type <RET> for more, q to quit, c to continue without paging--
+<https://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from Lab1_20213699...
+(No debugging symbols found in Lab1_20213699)
+(gdb) set disassembly-flavor intel
+(gdb) set print pretty
+(gdb) set args 4
+(gdb) b loop
+Punto de interrupción 1 at 0x40100e
+(gdb) b terminar_1
+Punto de interrupción 2 at 0x40101d
+(gdb) b final
+Punto de interrupción 3 at 0x40103d
+(gdb) run
+Starting program: /home/alulab/Escritorio/20213699/Lab1_20213699 4
+
+Breakpoint 1, 0x000000000040100e in mcd ()
+(gdb) continue
+Continuando.
+
+Breakpoint 1, 0x000000000040100e in mcd ()
+(gdb) i r eax
+eax            0x32                50
+(gdb) i r ebx
+ebx            0x19                25
+(gdb) continue
+Continuando.
+
+Breakpoint 1, 0x000000000040100e in mcd ()
+(gdb) i r eax
+eax            0x19                25
+(gdb) i r eax
+eax            0x19                25
+(gdb) i r ebx
+ebx            0x0                 0
+(gdb) continue
+Continuando.
+
+Breakpoint 2, 0x000000000040101d in terminar_1 ()
+(gdb) i r eax
+eax            0x19                25
+(gdb) continue
+Continuando.
+
+Breakpoint 3, 0x000000000040103d in final ()
+(gdb) i r eax
+eax            0x19                25
+(gdb) i r ebx
+ebx            0x0                 0
